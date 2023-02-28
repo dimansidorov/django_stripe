@@ -14,7 +14,7 @@ HTML страницу, на которой будет информация о в
 библиотеки Stripe происходить редирект на Checkout форму
 stripe.redirectToCheckout(sessionId=session_id)
 
-# Django Stripe Test Project
+## Stack
 
 - Django 4.1.7
 - djangorestframework 3.14.0
