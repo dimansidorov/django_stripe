@@ -16,7 +16,7 @@ stripe.redirectToCheckout(sessionId=session_id)
 
 ## Лицензия
 
-MIT License
+MIT
 
 
 ## Запуск проекта
