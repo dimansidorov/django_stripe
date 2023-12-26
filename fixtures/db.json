@@ -1,0 +1,110 @@
+[
+    {
+        "model": "auth.user",
+        "pk": 1,
+        "fields": {
+            "password": "pbkdf2_sha256$720000$rRVsnHTINQUCX5kykIP800$zmVkCB+9CxVZWh/Kg5WLLREz2pwZvTFBST86KWh1J4g=",
+            "last_login": null,
+            "is_superuser": true,
+            "username": "admin",
+            "first_name": "",
+            "last_name": "",
+            "email": "",
+            "is_staff": true,
+            "is_active": true,
+            "date_joined": "2023-12-22T10:18:24.339Z",
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "product.item",
+        "pk": 1,
+        "fields": {
+            "name": "Shoulder",
+            "description": "Level movement every level question whatever three. Enough add increase religious my rock.\nInteresting little scene into edge involve. Job yeah development sit.",
+            "price": 7715
+        }
+    },
+    {
+        "model": "product.item",
+        "pk": 2,
+        "fields": {
+            "name": "Best",
+            "description": "May forget time main plant day. Require sound operation officer why nothing around. Final officer itself letter seem.\nAddress still poor model yes mission.",
+            "price": 3920
+        }
+    },
+    {
+        "model": "product.item",
+        "pk": 3,
+        "fields": {
+            "name": "Individual",
+            "description": "Window move red. Authority they real stage difficult oil response. Mouth policy bed choice.\nProtect thank score ok poor value. High too side we. Those home try.",
+            "price": 8321
+        }
+    },
+    {
+        "model": "product.item",
+        "pk": 4,
+        "fields": {
+            "name": "Look",
+            "description": "Stop government half sit mean. Group campaign across design.\nVoice yourself international. Lead court throughout for federal attorney arm. Various onto pick couple ever image image.",
+            "price": 4157
+        }
+    },
+    {
+        "model": "product.item",
+        "pk": 5,
+        "fields": {
+            "name": "Morning",
+            "description": "Wide appear conference away. Side wait attack little range end. Tend campaign yard partner never hand.",
+            "price": 8417
+        }
+    },
+    {
+        "model": "product.item",
+        "pk": 6,
+        "fields": {
+            "name": "Successful",
+            "description": "Evening stay four leg. Project positive computer after.",
+            "price": 87
+        }
+    },
+    {
+        "model": "product.item",
+        "pk": 7,
+        "fields": {
+            "name": "End",
+            "description": "Late affect notice. Sense adult speak most side look.\nDrop long area. Cell whom author hit again fire.",
+            "price": 1379
+        }
+    },
+    {
+        "model": "product.item",
+        "pk": 8,
+        "fields": {
+            "name": "It",
+            "description": "Nation difficult hit western skill. Conference issue garden. Thousand message manager same sure use.\nSort worry case.",
+            "price": 8420
+        }
+    },
+    {
+        "model": "product.item",
+        "pk": 9,
+        "fields": {
+            "name": "Many",
+            "description": "Since service mouth discuss lose indeed including. Maintain hot space impact security visit poor. Hold writer beat five full.",
+            "price": 2007
+        }
+    },
+    {
+        "model": "product.item",
+        "pk": 10,
+        "fields": {
+            "name": "Hold",
+            "description": "Place whom great difficult treatment trouble system foreign. Work his state write issue think be.",
+            "price": 8484
+        }
+    }
+]
