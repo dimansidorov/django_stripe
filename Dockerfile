@@ -1,9 +1,10 @@
 FROM python:3.12-alpine3.19
 
 COPY requirements.txt /temp/requirements.txt
-COPY app /app
+COPY app /usr/src/app
+COPY fixtures/db.json /usr/src/db.json
 
-WORKDIR /app
+WORKDIR /usr/src/app
 
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
