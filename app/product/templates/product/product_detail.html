@@ -10,7 +10,6 @@
     <script src="https://js.stripe.com/v3/"></script>
     <title>Document</title>
 </head>
-
 <body class="bg-white">
     <section>
         <div class="container mt-4">
@@ -24,8 +23,7 @@
                             {{ item.description }}
                         </div>
                         <h1 class="card-title pricing-card-title text-center">$ {{item.price }}</h1>
-                        <a></a>
-                        <form action="{% url 'buy' item.id %}" method="POST">
+                        <form id='checkout-form'>
                             {% csrf_token %}
                             <button type="submit" id="checkout-button" class="w-100 btn btn-lg btn-primary">BUY</button>
                         </form>
@@ -35,7 +33,28 @@
         </div>
         </div>
     </section>
-</body>
+    <script>
+        const stripe = Stripe("{{ STRIPE_PUBLIC_KEY }}")
+        const form = document.getElementById('checkout-form')
+        form.addEventListener("submit", async (e) => {
+            e.preventDefault();
 
+            const session = await fetch(
+                `{% url 'buy' item.id %}`,
+                {
+                    "method": "POST",
+                    "headers": {
+                        "Content-Type": "application/json"
+                    },
+                    "body" : JSON.stringify({})
+                }
+            ).then(r => r.json())
+
+            stripe.redirectToCheckout({
+                sessionId: session.session_id
+            })
+        })
+    </script>
+</body>
 
 </html>
