@@ -3,7 +3,6 @@ from django.http import JsonResponse, Http404
 from django.views.generic import DetailView
 from django.conf import settings
 from django.views.decorators.csrf import csrf_exempt
-from rest_framework import status
 
 import stripe
 
@@ -20,7 +19,7 @@ class ItemDetailView(DetailView):
 
     def get_context_data(self, **kwargs: Any) -> dict[str, Any]:
         context =  super().get_context_data(**kwargs)
-        context['STRIPE_SECRET_KEY'] = settings.STRIPE_SECRET_KEY
+        context['STRIPE_PUBLIC_KEY'] = settings.STRIPE_PUBLIC_KEY
         return context
 
 
@@ -48,5 +47,4 @@ def buy_item_view(request, pk: int):
         success_url=settings.DOMAIN + '/success.html',
         cancel_url=settings.DOMAIN + '/cancel.html',
     )
-
-    return JsonResponse({"session_id": session.id}, status=status.HTTP_200_OK)
+    return JsonResponse({"session_id": session.id}, status=200)
