@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' type='text/css' media='screen' href="{% static 'css/bootstrap.min.css' %}">
+    <link rel='stylesheet' type='text/css' media='screen' href="{% static 'css/pricing.css' %}">
+    <script src="https://js.stripe.com/v3/"></script>
+    <title>Document</title>
+</head>
+<body class="bg-white">
+    <section>
+        <div class="container mt-4">
+            <div class="col">
+                <div class="card mb-4 rounded-3 shadow-sm border-primary mx-auto" style="max-width: 300px;">
+                    <div class="card-header py-3 text-bg-primary border-primary">
+                        <h4 class="my-0 fw-normal">{{ item.name }}</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="mx-2 mt-2 mb-4">
+                            {{ item.description }}
+                        </div>
+                        <h1 class="card-title pricing-card-title text-center">$ {{item.price }}</h1>
+                        <form id='checkout-form'>
+                            {% csrf_token %}
+                            <button type="submit" id="checkout-button" class="w-100 btn btn-lg btn-primary">BUY</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+    <script>
+        const stripe = Stripe("{{ STRIPE_PUBLIC_KEY }}")
+        const form = document.getElementById('checkout-form')
+        form.addEventListener("submit", async (e) => {
+            e.preventDefault();
+
+            const session = await fetch(
+                `{% url 'buy' item.id %}`,
+                {
+                    "method": "POST",
+                    "headers": {
+                        "Content-Type": "application/json"
+                    },
+                    "body" : JSON.stringify({})
+                }
+            ).then(r => r.json())
+
+            stripe.redirectToCheckout({
+                sessionId: session.session_id
+            })
+        })
+    </script>
+</body>
+
+</html>
